@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `E-commerce Snipcart and Gatsby Starter`,
-    author: `Issy Dennis`,
-    description: `A simple e-commerce shop using Gatsby and Snipcart.`,
+    title: `Kemadu Styles`,
+    author: `talkingdrum media`,
+    description: `Modern fashion store.`,
     siteUrl: `https://gatsby-snipcart-starter.netlify.com/`,
   },
   plugins: [
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -58,12 +59,13 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-snipcart',
+      resolve: "gatsby-plugin-snipcart",
       options: {
         //replace with own Snipcart API key
-        apiKey: 'MjQ2MDY4MDctMDZkYi00ZTY0LWFlODItNzhlMmEzZDg1NTBiNjM2OTc2Nzk1NjcwMTU3MTkx',
+        apiKey:
+          "MjQ2MDY4MDctMDZkYi00ZTY0LWFlODItNzhlMmEzZDg1NTBiNjM2OTc2Nzk1NjcwMTU3MTkx",
         autopop: true,
-          }
+      },
     },
     `gatsby-plugin-styled-components`,
   ],

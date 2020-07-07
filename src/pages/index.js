@@ -4,17 +4,18 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
-import ItemThumbnail from '../components/ItemThumbnail/ItemThumbnail';
+import ItemThumbnail from "../components/ItemThumbnail/ItemThumbnail"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import CarouselHeader from "../components/CarouselHeader"
 
 const ThumbnailsWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
 `
 
 class BlogIndex extends React.Component {
@@ -26,22 +27,22 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All items" />
-      <ThumbnailsWrapper>
-        {items.map(({ node }) => {
-          const { title, image, price } = node.frontmatter
-          return (
-            <ItemThumbnail
-              key={node.fields.slug}
-              link={node.fields.slug}
-              heading={title}
-              image={image.childImageSharp.fluid}
-              price={price}
-            />
-          )
-        })}
-      </ThumbnailsWrapper>
-        
-
+        <CarouselHeader />
+        <h2 className="text-center m-3">Latest Arrivals</h2>
+        <ThumbnailsWrapper>
+          {items.map(({ node }) => {
+            const { title, image, price } = node.frontmatter
+            return (
+              <ItemThumbnail
+                key={node.fields.slug}
+                link={node.fields.slug}
+                heading={title}
+                image={image.childImageSharp.fluid}
+                price={price}
+              />
+            )
+          })}
+        </ThumbnailsWrapper>
       </Layout>
     )
   }
